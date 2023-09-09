@@ -1,0 +1,213 @@
+/* COMMON(공통) */
+
+body {
+    color: #333; 
+    font-size: 16px; /* 일반적으로 16px */
+    font-weight: 400; /* 일반적으로 400 */
+    line-height: 1.4; /* font-size 16px 기준 일반적으로 1.4 */
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+img {
+    display: block; /* 인라인 요소에서 block 요소호, 즉 레이아웃 요소로 취급 */ 
+}
+
+a {
+    text-decoration: none;
+}
+
+.inner {
+    width: 1100px;
+    margin: 0 auto;
+    /* margin을 통해 inner 부분을 중앙으로 배치시켰다. */ 
+    position: relative;
+}
+
+/* HEADER */
+header {
+    background-color: #f6f5f0;
+    border-bottom: 1px solid #c8c8c8;
+}
+
+header >.inner { /* header의 자식요소(>)인 inner 속성 */
+    height: 120px; 
+}
+
+header .logo {
+    height: 75px;
+    position: absolute;
+    top: 0;  
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  /* 위에서 0지점, 아래에서 0지점인 곳에서 외부 여백이 자동이다. 
+    이때, height 속성으로 요소의 크기를 확실히 해주어야 한다. 
+    absolute는 relative를 가진 부모 요소의 위치를 기준으로 한다. */
+}
+
+header .sub-menu {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+}
+
+header .sub-menu ul.menu {
+    display: flex;
+}
+
+header .sub-menu ul.menu li {
+    font-family: Arial, sans-serif; /* Arial 폰트 사용, 없으면 sans 사용 */
+    position: relative;
+}
+
+header .sub-menu ul.menu li::before { /* 메뉴간 구분선 */
+    /* 가상 요소 선택자 ::before, 인라인 요소이다. */
+    content: ""; /* 가상 요소 선택자 before 사용 시 필수 속성 content */
+    width: 1px;
+    height: 12px;
+    background-color: #e5e5e5; /* 밝은 회색 */
+    position: absolute; /* position: absolute를 사용하면 display가 자동으로 block으로 바뀐다.*/
+    top: 0;
+    bottom: 0;
+    margin: auto; /* left, right의 0은 생략 가능 */
+}
+
+header .sub-menu ul.menu li:first-child::before { /* 가상 클래스 선택자 first-child */
+    display: none;
+}
+
+header .sub-menu ul.menu li a {
+    font-size: 12px;
+    padding: 11px 16px; /* top, bottom / left, right */
+    display: block; /* padding 설정을 위해 block 요소로 변경 */
+    color: #656565;
+}
+
+header .sub-menu ul.menu li a:hover { 
+    /* a태그의 가상 클래스 속성 'hover' 추가, 커서를 가져다 대면... */
+    color: #000;
+}
+
+header .sub-menu .search {
+    position: relative;
+    height: 34px;
+}
+
+header .sub-menu .search input {
+    width: 36px;
+    height: 34px;
+    padding: 4px 10px;
+    border: 1px solid #ccc; /* 테두리선 */
+    box-sizing: border-box; /* width와 height 기준 안쪽에 border 선을 위치시킨다. */
+    border-radius: 5px;
+    outline: none; /* 활성화시 아웃라인이 생기는 것을 방지한다. */ 
+    background-color: #fff;
+    color: #777;
+    transition: width .4s; /* 전환효과 - 가로만, 0.4초동안 (0은 생략 가능)*/
+}
+
+header .sub-menu .search input:focus { /* input요소를 선택(focus)하면 */
+    width: 190px;
+    border-color: #669900;
+}
+
+
+header .sub-menu .search .material-icons {
+    height: 24px; /* Google에서 제공하는 icon의 높이 기준 */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5px;
+    margin: auto;
+    transition: all .4s; /* all은 기본값이라서 생략 가능 */
+}
+
+header .sub-menu .search.focused .material-icons {
+/* focused는 serach라는 class에 붙었다가 빠지기 때문에 '일치 선택자'로 붙여준다. */
+    opacity: 0;
+}
+
+header .main-menu {
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1; /* 추루 드롭다운 메뉴가 아래 창을 덮을 수 있도록 z-index 조정 */
+}
+
+header .main-menu .item {
+
+}
+
+header .main-menu .item .item__name {
+    padding: 10px 20px 34px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+header .main-menu .item:hover .item__name { 
+    /* item__contents도 있기 때문에 item 자체에 hover 입력 */
+    background-color: #2c2a29;
+    color: #669900;
+    border-radius: 6px 6px 0 0;
+}
+
+header .main-menu .item .item__contents {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    /* top이나 bottom 속성을 사용하지 않아 수직 위치 값이 없다면, 요소의 원래 위치를 그대로 사용한다.
+    만약 position: absolute를 사용했다면 위치상 부모 요소를 기준으로 하므로
+    화면의 뷰포트 좌우 끝까지 늘어날 수 없게 된다. */
+    display: none;
+}
+
+header .main-menu .item:hover .item__contents {
+    display: block;
+}
+
+header .main-menu .item .item__contents .contents__menu {
+    background-color: #2c2a29;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul { /* contents__menu 의 자식 태그인 ul */
+    display: flex;
+    padding: 20px 0; /* 드롭다운의 전체 리스트 위아래 20px 여백 */
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li { 
+    width: 220px; /* 커피 - 에스프레소 음료 - ... 간 가로 거리 설정 */
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li > h4  { 
+    padding: 3px 0 12px 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li { 
+    padding: 5px 0;
+    font-size: 12px;
+    color: #999;
+    cursor: pointer; /* 커서 시 마우스 포인터 형태 변경 */
+}
+
+header .main-menu .item .item__contents .contents__texture {
+    padding: 26px 0;
+    font-size: 12px; /* font-size는 상속이 된다. */
+    background-image: url("../images/main_menu_pattern.jpg");
+}
+
+header .main-menu .item .item__contents .contents__texture h4 {
+    color: #999;
+    font-weight: 700;
+}
+
+header .main-menu .item .item__contents .contents__texture p {
+    color: #669900;
+    margin: 4px 0 14px; /* top / left, right / bottom */
+    font-size: 12px;
+}
+
+
