@@ -24,6 +24,70 @@ a {
     position: relative;
 }
 
+.btn { /* 우선순위 10점 */
+    width: 130px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box; /* margin 미포함, padding, border 포함*/
+    display: 'block';  /* 인라인 효과에 속성 추가 */
+    transition: .4s; /* 전환효과를 0.4초 */
+}
+
+.btn:hover {
+    background-color: #333;
+    color:#fff;
+}
+
+.btn.btn--reverse { /* 앞 요소의 상태를 '--' 기호를 이용하여 명시한다. */
+    /* btn의 상태가 reverse인 경우, 아래 속성을 적용한다. */
+    /* 우선순위 20점, btn에서 덮어쓸 수 있다. */
+    background-color: #333;
+    color:#fff
+}
+
+.btn.btn--reverse:hover { /* 30점 */
+    background-color: transparent; /* 투명 */
+    color: #333;
+}
+
+.btn.btn--brown {
+    color: #592B18;
+    border-color: #592B18;
+}
+
+.btn.btn--brown:hover {
+    color: #FFF;
+    background-color: #592B18;
+}
+
+.btn.btn--gold {
+    color: #D9AA8A;
+    border-color: #D9AA8A;
+}
+
+.btn.btn--gold:hover {
+    color: #FFF;
+    background-color: #D9AA8A;
+}
+
+.btn.btn--white {
+    color: #FFF;
+    border-color: #FFF;
+}
+
+.btn.btn--white:hover {
+    color: #333;
+    background-color: #FFF;
+}
+
+
+
 /* HEADER */
 header {
     /* position: relative; */
@@ -33,7 +97,7 @@ header {
     position: fixed;
     /* absolute, fixed의 경우 가로를 최소화하려고 해서 너비를 %로 설정하는 게 좋다. */
     top: 0;
-
+    z-index: 9;
 }
 
 header >.inner { /* header의 자식요소(>)인 inner 속성 */
@@ -237,3 +301,56 @@ header .badges .badge {
 }
 
 
+/* VISUAL 영역 */
+.visual {
+    margin-top: 120px; /* header가 120px임. */
+    background-image: url("../images/visual_bg.jpg");
+    background-position: center;
+}
+
+.visual .inner { /* .inner는 이미 위쪽에 지정되어있는 속성이 있어서 여기서는 크게 지정 안함. */
+    height: 646px;
+}
+
+.visual .title { /* .inner는 정렬을 해주는 역할만 있을 뿐 visual class와 직접적으로
+    연관이 없기 때문에 생략하였다. (원래는 .inner .title) */
+    position: absolute; /* 부모는 inner */
+    top: 88px;
+    left: -10px;
+}
+
+.visual .title .btn {
+    position: absolute; /* 부모요소는 title */ 
+    top:259px;
+    left: 173px; 
+}
+
+.visual .cup1.image { /* 일치 선택자 cup1 class이면서 image 요소인 것 */
+    position: absolute;
+    bottom: 0;
+    right: -47px;
+}
+
+.visual .cup1.text {
+    position: absolute;
+    top: 38px;
+    right: 171px;
+}
+
+.visual .cup2.image {
+    position: absolute;
+    bottom: 0;
+    right: 162px;
+}
+
+.visual .cup2.text {
+    position: absolute;
+    top: 321px;
+    right: 416px;
+}
+
+.visual .spoon {
+    position: absolute;
+    bottom: 0;
+    left: 275px;
+}
