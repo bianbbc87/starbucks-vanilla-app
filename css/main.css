@@ -6,6 +6,7 @@ body {
     font-weight: 400; /* 일반적으로 400 */
     line-height: 1.4; /* font-size 16px 기준 일반적으로 1.4 */
     font-family: 'Nanum Gothic', sans-serif;
+    height: 3000px;
 }
 
 img {
@@ -25,8 +26,14 @@ a {
 
 /* HEADER */
 header {
+    /* position: relative; */
+    width: 100%;
     background-color: #f6f5f0;
     border-bottom: 1px solid #c8c8c8;
+    position: fixed;
+    /* absolute, fixed의 경우 가로를 최소화하려고 해서 너비를 %로 설정하는 게 좋다. */
+    top: 0;
+
 }
 
 header >.inner { /* header의 자식요소(>)인 inner 속성 */
@@ -193,6 +200,10 @@ header .main-menu .item .item__contents .contents__menu > ul > li ul li {
     cursor: pointer; /* 커서 시 마우스 포인터 형태 변경 */
 }
 
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
+    color: #669900;
+}
+
 header .main-menu .item .item__contents .contents__texture {
     padding: 26px 0;
     font-size: 12px; /* font-size는 상속이 된다. */
@@ -208,6 +219,21 @@ header .main-menu .item .item__contents .contents__texture p {
     color: #669900;
     margin: 4px 0 14px; /* top / left, right / bottom */
     font-size: 12px;
+}
+
+header .badges {
+    position: absolute;
+    top: 123px;
+    right: 12px;
+}
+
+header .badges .badge {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, .15);
+    /* x축 y축 blur spread color (0, 0, 0 은 블랙, .15는 투명도) */
+    cursor: pointer;
 }
 
 
