@@ -62,3 +62,14 @@ window.addEventListener('scroll', _.throttle(function () {
     프로그램이 커질수록 함수가 계속 실행되며 과부하가 걸릴 수 있기 때문에 lodash cdn의 코드를
     .html에 script로 붙여넣어 제어 함수를 설정해준다. 
     _.throttle(함수, 시간) : throttle 메소드로 scroll 함수 실행 시간을 제어한다.  */
+
+
+
+    const fadeEls = document.querySelectorAll('.visual .fade-in'); /* 뒤에 명시하는 선택자들을 모두 찾아 객체에 저장  */
+    fadeEls.forEach(function(fadeEl, index) { /* fadeEls의 요소 1개에 대한 fadeEl와 반복의 횟수 index */
+    gsap.to(fadeEl, 1, {
+        delay: (index + 1) * .7, /* (s) 몇 초 후에 시작될 것인가?
+        반복을 하며 index의 값은 0, 1, 2.. 올라간다. 즉, 0.7, 1.4, 2.1... 동작 시작 시간이 점점 쌓인다. */
+        opacity: 1 /* 원래 css에서 0이었던 값을 1로 변환 */
+    }); /* 애니메이션 처리 */
+    }); /* fade-in 요소들의 개수만큼 forEach 메서드 실행 */
