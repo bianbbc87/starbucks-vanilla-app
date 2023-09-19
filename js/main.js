@@ -73,3 +73,5 @@ window.addEventListener('scroll', _.throttle(function () {
         opacity: 1 /* 원래 css에서 0이었던 값을 1로 변환 */
     }); /* 애니메이션 처리 */
     }); /* fade-in 요소들의 개수만큼 forEach 메서드 실행 */
+
+    /* 위와 같이 자동화 구조가 필요하다 !!! */
