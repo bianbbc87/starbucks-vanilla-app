@@ -572,3 +572,126 @@ header .badges .badge {
     background-color: #333;
     color: #fff;
 }
+
+
+/* REWARDS */
+.rewards {
+    position: relative;
+}
+
+.rewards .bg-left {
+    width: 50%;
+    height: 100%;
+    background-color: #272727;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rewards .bg-right {
+    width: 50%;
+    height: 100%;
+    background-color: #d5c798;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.rewards .inner { /* inner에 position: relative가 이미 추가되어 있다. */ 
+    background-image: url("../images/rewards.jpg");
+    height: 241px;
+}
+
+.rewards .btn-group {
+    position: absolute;
+    bottom: 24px;
+    right: 0;
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap; 
+    /* 정렬된 요소들의 총 넓이가 부모 넓이보다 클 때, 이 요소들을 다음 줄에 이어서 정렬 해주는 기능이다. */
+}
+
+.rewards .btn-group .btn.sign-up {
+    margin-right: 10px;
+}
+
+.rewards .btn-group .btn.sign-in {
+    width: 100px;
+}
+
+.rewards .btn-group .btn.gift {
+    margin-top: 10px;
+    flex-grow: 1; /* 최대한의 너비를 사용한다. */
+}
+
+
+/* YOUTUBE VIDEO */
+
+.youtube {
+    position: relative;
+    height: 700px;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.youtube .youtube__area {
+    width: 1920px;
+    background-color: orange;
+    position: absolute;
+    left: 50%;
+    margin-left: calc(1920px / -2);
+    top: 50%;
+    margin-top: calc(1920px * 9 / 16 / -2); 
+    /* 세로 너비를 16:9 비율로 한 후 -2로 나누어 youtube 영역의 정확한 절반에 위치하도록 한다. */
+}
+
+.youtube .youtube__area::before {
+    content: "";
+    display: block; /* 가로 너비, 세로 너비를 가지기 위하여 block 요소로 변환 */
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%; 
+}
+
+.youtube .youtube__cover { 
+    /* 출력되는 영샹을 위해 커버를 덮는 기능 */
+    background-image: url("../images/video_cover_pattern.png");
+    background-color: rgba(0, 0, 0, .3); /* 30%의 투명도를 가진 검정색 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#player {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.youtube .inner {
+    height: 700px;
+}
+
+.youtube .floating1 {
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+
+.youtube .floating2 {
+    position: absolute;
+    top: 350px;
+    left: 150px;
+}
+
+.youtube .floating3 {
+    position: absolute;
+    bottom: -200px;
+    right: 0;
+    /* .youtube 속성의 overflow:hidden 때문에 범위 밖 이미지가 잘리고 있다. */
+}

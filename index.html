@@ -48,6 +48,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     
+    <script defer src="./js/youtube.js"></script> <!-- Youtube 연결 -->
     <script defer src="./js/main.js"></script> 
     <!-- defer: html 요소가 모두 해석이 되면 javascript 실행-->
 </head>
@@ -497,6 +498,40 @@
               <div class="material-icons">arrow_forward</div>
             </div>
           </div>
+        </section>
+
+
+        <!-- REWARDS -->
+        <section class="rewards">
+          <div class="bg-left"></div>
+          <div class="bg-right"></div>
+          <div class="inner">
+            <div class="btn-group">
+              <div class="btn btn--reverse sign-up">회원가입</div> 
+              <!-- '--' 반전된 상태라고 css에 설정해놨음. -->
+              <div class="btn sign-in">로그인</div>
+              <div class="btn gift">e-Gift 선물하기</div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- YOUTUBE VIDEO -->
+        <section class="youtube">
+          <div class="youtube__area">
+            <div id="player"></div>
+              <!-- class는 중복 가능한 이름인 반면, id는 고유한 이름이다. -->
+          </div>
+            <div class="youtube__cover"></div>
+
+            <!-- 영상 위에 둥둥 떠다니는 애들 -->
+              <div class="inner">
+                <img src="./images/floating1.png" alt="Icon" class="floating floating1" />
+                <img src="./images/floating2.png" alt="Icon" class="floating floating2" />
+                <img src="./images/floating3.png" alt="Icon" class="floating floating3" />
+
+              </div>
+
         </section>
 
       </body>
