@@ -109,3 +109,20 @@ window.addEventListener('scroll', _.throttle(function () {
         }
         /* 해당 선택자 요소를 찾아서 이전 스타일과 다음 스타일이 나타나도록 해준다. */
     });
+
+
+    const promotionEl = document.querySelector('.promotion');
+    /* promotion 클래스를 가진 객체 선언 */
+    const promotionToggleBtn = document.querySelector('.toggle-promotion');
+    let isHidePromotion = false;
+    promotionToggleBtn.addEventListener('click', function() {
+        isHidePromotion = !isHidePromotion 
+        /* promotionToggleBtn을 click 시 값이 반대가 되도록 한다. */
+        if(isHidePromotion){ /* TRUE */
+// 숨김 처리 !
+        promotionEl.classList.add('hide');
+        } else { /* FALSE */
+// 보임 처리 !
+        promotionEl.classList.remove('hide');
+        }
+    });

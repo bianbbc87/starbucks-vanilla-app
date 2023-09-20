@@ -473,6 +473,12 @@ header .badges .badge {
     position: relative;
     height: 693px;
     background-color: #f6f5ef;
+    transition: height .4s; /* 해당 속성에 대해 0.4초동안 속성 추가 */
+    overflow: hidden; /* 영역을 벗어나는 것에 대해 숨긴다. */
+}
+
+.notice .promotion.hide { /* 일치선택자, 'promotion hide'로 붙어있기 때문이다. */
+    height: 0; /* hide가 붙어있는 경우 높이를 0으로 축소 */
 }
 
 .notice .promotion .swiper {
