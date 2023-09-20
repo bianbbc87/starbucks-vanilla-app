@@ -358,3 +358,211 @@ header .badges .badge {
 .visual .fade-in {
     opacity: 0;
 }
+
+
+/* NOTICE */
+
+.notice {
+
+}
+
+.notice .notice-line {
+    position: relative;
+}
+
+.notice .notice-line .bg-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #333;
+}
+
+.notice .notice-line .bg-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #f6f5ef;
+}
+
+.notice .notice-line .inner {
+    height: 62px; 
+    /* 부모 요소 notice-line의 position relative로, 세로로 최대한 줄어들려고 한다.
+    bg-right와 bg-left의 height이 100%이기 때문에 200px 그대로 늘어나는 것이다.
+    이처럼 요소 간 상호작용에 주의해야 한다. */
+    display: flex; /* 자식 요소들이 수평이 된다. */
+}
+
+.notice .notice-line .inner__left {
+    width: 60%;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.notice .notice-line .inner__left h2{
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.notice .notice-line .inner__left .swiper {
+    flex-grow: 1; 
+    /* 부모요소가 display: flex이기 때문에 가로로 최대한 줄어들으려 한다.
+    높이값은 최대한 늘어나려고 한다. 
+    flex-grow를 1로 설정하면 가로 너비를 최대로 늘린다. */
+    height: 62px;
+    /* inner__left에서 align-items를 center로 설정하면서 높이가 사라졌다. */
+}
+
+.notice .notice-line .inner__left .swiper .swiper-slide {
+   height: 62px;
+   display: flex;
+   align-items: center;
+}
+
+.notice .notice-line .inner__left .swiper .swiper-slide a {
+   color: #fff;
+}
+
+.notice .notice-line .inner__left .notice-line__more {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice .notice-line .inner__left .notice-line__more .material-icons {
+    color: #fff;
+    font-size: 30px; /* icon의 기본 사이즈는 24px이다. */
+}
+
+.notice .notice-line .inner__right {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end; /* 수평 정렬 */
+    align-items: center; /* 수직 정렬 */
+}
+
+.notice .notice-line .inner__right h2{
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.notice .notice-line .inner__right h2 .toggle-promotion {
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice .notice-line .inner__right h2 .toggle-promotion .material-icons {
+    font-size: 30px;
+}
+
+.notice .promotion {
+    position: relative;
+    height: 693px;
+    background-color: #f6f5ef;
+}
+
+.notice .promotion .swiper {
+    width: calc(819px * 3 + 20px); 
+    /* 자동으로 계산해주는 css 함수, 
+    819px씩 3개를 20px 간격으로 해서 가로너비 계산 */
+    height: 553px;
+    position: absolute;
+    top: 40px;
+    left: 50%; /* 왼쪽으로 50%가량 이동 후 시작 */
+    margin-left: calc((819px * 3 + 20px) / -2 );
+    /* 다시 외부여백을 전체 페이지의 절반만큼 땡겨서 
+    확대해봐도 해당 요소가 중앙을 기준선으로 강조되도록 한다. */
+}
+
+.notice .promotion .swiper-slide {
+    opacity: .5; /* 기본 투명도를 0.5로 */
+    transition: opacity 1s; /* 1초동안 opacity를 자연스럽게 바꾼다. */
+    position: relative; 
+}
+
+.notice .promotion .swiper-slide-active {
+    opacity: 1; /* 중앙 포커스 시에만 1로 */
+}
+
+.notice .promotion .swiper-slide .btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; 
+    /* 요소의 가로 너비가 있어야 auto 계산 가능 
+    그러나 btn css에 버튼 자체의 가로 너비가 지정이 되어있음. */
+}
+
+.notice .promotion .swiper-pagination {
+    bottom: 40px;
+    left: 0;
+    right: 0;
+} /* pagination에는 이미 javascript에서 제공하는 position 값이 들어있기 때문에
+일반 위치 값만 입력해도 가능하다. */
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet { 
+    background-color: transparent; /*background-image가 보이도록 배경 투명으로 지정 */ 
+    /* 개발자 도구로 확인한 pagination 내부의 bullet 요소 (점들) */
+    background-image: url("../images/promotion_slide_pager.png");
+    width: 12px;
+    height: 12px;
+    margin-right: 6px; /* bullet 요소들 사이사이에 여백 추가 */
+    outline: none; /* 기본 속성인 파란 테두리선을 제거하기 위한 none */
+}
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child { 
+    /* 가장 마지막 요소는 margin-right: 6px; 즉, 오른쪽 여백이 필요없다. */
+    margin-right: 0; 
+}
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet-active { 
+    background-image: url("../images/promotion_slide_pager_on.png");
+}
+
+.notice .promotion .swiper-prev,
+.notice .promotion .swiper-next { /* 다중 선택자는 줄바꿈을 해주는 것이 좋다. */
+    width: 42px;
+    height: 42px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 300px;
+    z-index: 1; /* 슬라이드보다 위에 쌓이도록 z-index 설정 */
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s; /* 아래 hover에 대한 전환 효과 */ 
+}
+
+.notice .promotion .swiper-prev{
+    left: 50%;
+    margin-left: -480px;
+}
+
+.notice .promotion .swiper-next {
+    right: 50%;
+    margin-right: -480px;
+}
+
+.notice .promotion .swiper-prev:hover,
+.notice .promotion .swiper-prev:hover {
+    background-color: #333;
+    color: #fff;
+}

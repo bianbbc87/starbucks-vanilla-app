@@ -75,3 +75,37 @@ window.addEventListener('scroll', _.throttle(function () {
     }); /* fade-in 요소들의 개수만큼 forEach 메서드 실행 */
 
     /* 위와 같이 자동화 구조가 필요하다 !!! */
+
+    new Swiper('.notice-line .swiper', {
+        direction: 'vertical', /* 수직으로 슬라이드 */
+        autoplay: true, /* 자동 재생 */
+        loop: true /* 반복 재생 */
+    });
+    /* 클래스 생성자 */
+    /* new Swiper(css 선택자, 옵션(객체 데이터 형식)); */
+
+    new Swiper('.promotion .swiper', {
+        /* direction: 'horizontal'이지만 기본 형식이라서 생략 */
+        slidesPerView: 3, // 한번에 보여줄 슬라이드 개수
+        spaceBetween: 10, // 슬라이드 사이 여백 
+        centeredSlides: true, // 1번 슬라이드가 가운데 보이기
+        loop: true,
+        autoplay: {
+            delay: 5000
+            /* 0.5초 간격으로 이미지가 슬라이드
+            기본값은 3000(3초) */
+        },
+        /* 자동 재생에 객체 데이터를 할당해주면 옵션을 넣을 수 있다. */
+
+        pagination: {
+            el: '.promotion .swiper-pagination', // 페이지 요소 선택자
+            /* 선택자에 맞는 요소를 찾아서 페이지 요소를 찾아준다. */
+            clickable: true // 사용자의 페이지 번호 요소 제어
+            /* 클릭으로 제어 가능 */
+        },
+        navigation: {
+            prevEl: '.promotion .swiper-prev',
+            nextEl: '.promotion .swiper-next'
+        }
+        /* 해당 선택자 요소를 찾아서 이전 스타일과 다음 스타일이 나타나도록 해준다. */
+    });
