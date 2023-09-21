@@ -6,7 +6,7 @@ body {
     font-weight: 400; /* 일반적으로 400 */
     line-height: 1.4; /* font-size 16px 기준 일반적으로 1.4 */
     font-family: 'Nanum Gothic', sans-serif;
-    height: 6000px; /* 이후에 제거해도 됨. */
+    height: 3000px; /* 이후에 제거해도 됨. */
 }
 
 img {
@@ -751,45 +751,4 @@ header .badges .badge {
     position: absolute;
     top: 0;
     right: 0;
-}
-
-
-
-/* PICK YOUR FAVORITE */
-
-/* 아래와 같이 뷰포트에 고정되어 시간차로 이미지가 보이는 것을 패럴렉스라고 한다. 
-Parallax Scroll */
-.pick-your-favorite {
-    background-image: url("../images/favorite_bg.jpg");
-    background-repeat: no-repeat;
-    /* 이미지를 반복하지 않는다. */
-    background-position: center;
-    /* 포지션을 센터로 고정한다. */
-    background-attachment: fixed;
-    /* 화면을 스크롤 할 때 이미지가 스크롤 되지 않고 고정한다. */
-    background-size: cover;
-    /* 배경의 이미지를 요소의 더 넓은 너비에 맞춰서 출력한다. 
-    `background-attachment`가 'fixed'이기 때문에, 
-    뷰포트 크기에 맞춰서 최대로 출력한다. */
-}
-
-.pick-your-favorite .inner {
-    padding: 110px 0;
-}
-
-.pick-your-favorite .text-group {
-    width: 362px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    margin-left: 100px;
-    /* 우측으로 정렬 */ 
-}
-
-.pick-your-favorite .text-group .title {
-    margin-bottom: 40px;
-}
-
-.pick-your-favorite .text-group .description {
-    margin-bottom: 40px;
 }
