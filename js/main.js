@@ -161,3 +161,22 @@ window.addEventListener('scroll', _.throttle(function () {
     floatingObject('.floating2', .5, 15); 
     floatingObject('.floating3', 1.5, 20); 
     /* floating이라는 클래스를 가진 공통 선택자 */
+
+
+    const spyEls = document.querySelectorAll('section.scroll-spy');
+    spyEls.forEach(function (spyEl) {
+        /* spyEls 변수안의 각각의 요소들 spyEl을 이용하여 함수를 실행한다. */
+        new ScrollMagic
+        .Scene({
+            triggerElement: spyEl, // 보여짐 여부를 감시할 요소들을 저장
+            triggerHook: .8
+            /* 뷰포트의 시작(위)은 0, 끝(아래)는 1을 기준으로,
+            감시하려는 요소가 0.8 뷰포트 지점에 걸리면 trigger 된다. (실행된다. ) */
+        })
+        /* Scene : ScrollMagic 라이브러리를 통해서 각각의 요소들을 감시한다. */
+        .setClassToggle(spyEl, 'show')// (토글할 요소, 토글할 클래스 이름)
+        /* setClassToggle : html class를 지정하고 속성을 추가 혹은 제거한다. (Toggle) */
+        .addTo(new ScrollMagic.Controller());
+        /* addTo() : ScrollMagic을 위해 필요한 컨트롤러 
+        new ScrollMegic.Controller() : 내부적으로 컨트롤할 수 있는 기능을 제공 */ 
+    });

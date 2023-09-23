@@ -87,6 +87,43 @@ a {
 }
 
 
+/* BACK-TO-POSITION */
+
+.back-to-position {
+    opacity: 0;
+    transition: 1s;
+}
+
+.back-to-position.to-right { /* 일치 선택자 */
+    transform: translateX(-150px); /* x축으로 -150px만큼 이동 */
+}
+
+.back-to-position.to-left {
+    transform: translateX(150px);
+}
+
+.show .back-to-position {
+    opacity: 1;
+    transform: translateX(0); /* show라면 원상태로 복귀한다. */
+}
+
+.show .back-to.position.delay-0 {
+    transition-delay: 0s;
+    /* 변환상태 시작 지연 시간 지정 */
+}
+
+.show .back-to.position.delay-1 {
+    transition-delay: .3;
+}
+
+.show .back-to.position.delay-2 {
+    transition-delay: .6;
+}
+
+.show .back-to.position.delay-3 {
+    transition-delay: .9;
+}
+
 
 /* HEADER */
 header {
@@ -853,3 +890,57 @@ Parallax Scroll */
     margin: auto; 
     /* btn의 가로너비가 위에 지정되어있어서 따로 설정할 필요가 없음. */
 }
+
+
+/* FIND STORE */
+.find-store {
+    background-image: url("../images/find_store_bg.jpg");
+}
+
+.finr-store .inner {
+    height: 400px;
+}
+
+.find-store .texture1 {
+    position: absolute;
+    top: 0;
+    left: 400px;
+}
+
+.find-store .texture2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.find-store .picture {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, .5);
+    /* x축, y축, blur, rgba 색상 및 불투명도 */
+}
+
+.find-store .picture1 {
+    top: -60px;
+    left: 0px;
+}
+
+.find-store .picture2 {
+    top: 150px;
+    left: 250px;
+}
+
+.find-store .text-group {
+    position: absolute;
+    top: 120px;
+    left: 550px;
+}
+
+.find-store .text-group .title {
+    margin-bottom: 20px;;
+}
+
+.find-store .text-group .description {
+    margin-bottom: 20px;
+}
+
