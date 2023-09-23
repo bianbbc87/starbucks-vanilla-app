@@ -793,3 +793,63 @@ Parallax Scroll */
 .pick-your-favorite .text-group .description {
     margin-bottom: 40px;
 }
+
+
+
+/* RESERVE STORE */
+.reserve-store {
+    background-image: url("../images/reserve_store_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.reserve-store .inner {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reserve-store .medal {
+    width: 334px;
+    height: 334px;
+    /* hover가 적용되기 때문에 가로 세로 길이 지정 */
+    perspective: 600px; /* 원근 거리 지정 */
+}
+
+.reserve-store .medal .front, /* 다중 선택자*/
+.reserve-store .medal .back {
+    position: absolute;
+    width: 334px;
+    height: 334px;
+    backface-visibility: hidden;
+    /* 각각의 요소들이 뒤집어졌을 때, 뒷면은 화면에 보이지 않는다. (180deg 혹은 -180deg) */
+    transition: 1s;
+}
+
+.reserve-store .medal .front {
+    transform: rotateY(0deg);
+}
+
+.reserve-store .medal:hover .front {
+    transform: rotateY(180deg);
+}
+
+.reserve-store .medal .back {
+    transform: rotateY(-180deg);
+}
+
+.reserve-store .medal:hover .back {
+    transform: rotateY(0deg);
+}
+
+.reserve-store .medal .back .btn {
+    position: absolute;
+    top: 240px;
+    left: 0;
+    right: 0;
+    margin: auto; 
+    /* btn의 가로너비가 위에 지정되어있어서 따로 설정할 필요가 없음. */
+}
