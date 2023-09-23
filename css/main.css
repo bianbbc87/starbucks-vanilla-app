@@ -897,7 +897,7 @@ Parallax Scroll */
     background-image: url("../images/find_store_bg.jpg");
 }
 
-.finr-store .inner {
+.find-store .inner {
     height: 400px;
 }
 
@@ -944,3 +944,54 @@ Parallax Scroll */
     margin-bottom: 20px;
 }
 
+
+/* AWARDS */
+
+.awards {
+    background-color: #272727;
+}
+
+.awards .inner {
+    padding: 40px 0;
+}
+
+.awards .swiper {
+    width: 100%;
+    height: 40px;
+}
+
+.awards .swiper-prev,
+.awards .swiper-next {
+    width: 42px;
+    height: 42px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    outline: none;
+    color: #fff;
+    opacity: .3;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* 여기서, 부모요소는 .inner 이다.*/
+    top: 0;
+    bottom: 0;
+    margin: auto; 
+    /* 수직 가운데 위치이기 때문에 세로 너비를 확인해야한다. 
+    -> 맨 위 width: 42px, height: 42px로 이미 정의함. */
+}
+
+.awards .swiper-prev {
+    left: -100px; 
+}
+
+.awards .swiper-next {
+    right: -100px;
+}
+
+.awards .swiper-prev:hover,
+.awards .swiper-next:hover {
+    background-color: #fff;
+    color: #333;
+}

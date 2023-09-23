@@ -87,7 +87,7 @@ window.addEventListener('scroll', _.throttle(function () {
     new Swiper('.promotion .swiper', {
         /* direction: 'horizontal'이지만 기본 형식이라서 생략 */
         slidesPerView: 3, // 한번에 보여줄 슬라이드 개수
-        spaceBetween: 10, // 슬라이드 사이 여백 
+        spaceBetween: 10, // 슬라이드 사이 여백 (px)
         centeredSlides: true, // 1번 슬라이드가 가운데 보이기
         loop: true,
         autoplay: {
@@ -109,6 +109,17 @@ window.addEventListener('scroll', _.throttle(function () {
         }
         /* 해당 선택자 요소를 찾아서 이전 스타일과 다음 스타일이 나타나도록 해준다. */
     });
+
+    new Swiper('.awards .swiper', {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: true,
+        navigation: {
+            prevEl: '.awards .swiper-prev',
+            nextEl: '.awards .swiper-next'
+        }
+    })
 
 
     const promotionEl = document.querySelector('.promotion');
